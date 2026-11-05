@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poshan Sathi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1 data-i18n="appName">Poshan Sathi</h1>
+      <p class="sub" data-i18n="tagline">Diet and nutrition awareness tool for Anganwadi children (0-6 years)</p>
+    </div>
+    <select id="lang" aria-label="Language">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+    </select>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="add" data-i18n="tabAdd">Add child</button>
+    <button class="tab" data-tab="list" data-i18n="tabList">Dashboard</button>
+    <button class="tab" data-tab="learn" data-i18n="tabLearn">Tips</button>
+    <button class="tab" data-tab="quiz" data-i18n="tabQuiz">Quiz</button>
+  </nav>
+
+  <main>
+    <!-- ADD CHILD -->
+    <section id="tab-add" class="panel">
+      <form id="childForm" novalidate>
+        <label><span data-i18n="lName">Child's name</span>
+          <input id="name" type="text" autocomplete="off"></label>
+
+        <fieldset>
+          <legend data-i18n="lSex">Sex</legend>
+          <label class="inline"><input type="radio" name="sex" value="boy" checked> <span data-i18n="boy">Boy</span></label>
+          <label class="inline"><input type="radio" name="sex" value="girl"> <span data-i18n="girl">Girl</span></label>
+        </fieldset>
+
+        <div class="row">
+          <label><span data-i18n="lDob">Date of birth</span>
+            <input id="dob" type="date"></label>
+          <label><span data-i18n="lMonths">or age in months</span>
+            <input id="months" type="number" min="0" max="72" inputmode="numeric"></label>
+        </div>
+
+        <div class="row">
+          <label><span data-i18n="lWeight">Weight (kg)</span>
+            <input id="weight" type="number" step="0.1" inputmode="decimal"></label>
+          <label><span data-i18n="lMuac">MUAC in cm (optional, 6-59 months)</span>
+            <input id="muac" type="number" step="0.1" inputmode="decimal"></label>
+        </div>
+
+        <p id="formError" class="error" role="alert"></p>
+        <button type="submit" class="primary" data-i18n="btnCheck">Check nutrition status</button>
+      </form>
+
+      <div id="result" class="result" hidden></div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="tab-list" class="panel" hidden>
+      <div id="summary" class="summary"></div>
+      <div class="actions">
+        <button id="btnCsv" data-i18n="btnCsv">Download CSV</button>
+        <button id="btnClear" class="danger" data-i18n="btnClear">Delete all records</button>
+      </div>
+      <div id="childList"></div>
+    </section>
+
+    <!-- TIPS -->
+    <section id="tab-learn" class="panel" hidden>
+      <h2 data-i18n="hTips">Nutrition tips</h2>
+      <ul id="tipList"></ul>
+      <h2 data-i18n="hGuide">Feeding guide by age</h2>
+      <div id="guide"></div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="tab-quiz" class="panel" hidden>
+      <h2 data-i18n="hQuiz">Awareness quiz</h2>
+      <div id="quizBox"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="disclaimer">This is a screening and awareness aid, not a medical diagnosis. Please consult the health worker or doctor for any concern.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/logic.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "poshan-sathi",
+  "version": "0.1.0",
+  "description": "Diet and nutrition awareness tool for Anganwadi children (0-6 years)",
+  "scripts": {
+    "test": "node --test tests/logic.test.js"
+  },
+  "license": "MIT"
+}
